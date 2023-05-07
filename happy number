@@ -1,0 +1,23 @@
+class Solution {                     //class is a user defined function and can be used to store both data type and function variables in a single unit
+public:           //class can store data in  ways like public and private -public class can be accesed from within and outside the class while private can only be accesed from within the class
+    int sumofsquareofdigits(int n){          //using to calculate sum of square of the digits
+        int sum=0;
+        while(n>0){
+            int digit = n%10;
+            sum += digit*digit;
+            n/=10;
+        }
+       return sum;
+    }
+    
+    bool isHappy(int n) {      //bool is predefined data type and can be used to store two values one is true and other is false 
+                                          
+        int num1=n, num2=n;
+        do {
+            num1 = sumofsquareofdigits(num1);
+            num2 = sumofsquareofdigits(sumofdigits(num2));
+        }      while (num1 !=num2);
+               return num1 == 1;
+        
+    }
+};
