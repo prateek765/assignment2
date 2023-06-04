@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+vector<vector<int>> addMatrices(const vector<vector<int>>& A, const vector<vector<int>>& B) {
+    int rows = A.size();
+    int cols = A[0].size();
+    
+    vector<vector<int>> result(rows, vector<int>(cols, 0));
+    
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            result[i][j] = A[i][j] + B[i][j];           //main line changing sign can change functioning
+                                                          // like changing + to -
+        }
+    }
+    
+    return result;
+}
+
+
+void printMatrix(const vector<vector<int>>& matrix) {                 //function to print matrix using rows and columns
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+    
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int rows, cols;
+    cout << "Enter the number of rows: ";             //taking input of rows
+    cin >> rows;
+    cout << "Enter the number of columns: ";          //taking input of columns
+    cin >> cols;
+    
+    vector<vector<int>> matrixA(rows, vector<int>(cols, 0));         //putting them in a vector matrix A
+    vector<vector<int>> matrixB(rows, vector<int>(cols, 0));         // and B
+    
+    cout << "Enter elements of matrix A:" << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> matrixA[i][j];
+        }
+    }
+    
+    cout << "Enter elements of matrix B:" << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> matrixB[i][j];
+        }
+    }
+    
+    vector<vector<int>> result = addMatrices(matrixA, matrixB);               //at last the result vector
+    
+    cout << "Resultant matrix after addition:" << endl;
+    printMatrix(result);                                                       //printing matrix
+    
+    return 0;
+}
