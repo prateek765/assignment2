@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+    int length = 0;
+    int n = s.length();
+    int i = n - 1;             //reading from end
+    while (i>=0 && s[i] == ' ') {     //decreasing till empty spaces
+        i--;
+       }
+    while (i>=0 && s[i] != ' ') {
+        length++;                    //increasing length till empty spaces
+        i--;
+        }
+    return length;
+}
+
+};
